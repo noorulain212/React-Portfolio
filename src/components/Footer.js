@@ -1,14 +1,9 @@
-export default function Footer({ socialLinks = [] }) {
-    return (
-      <footer>
-        {socialLinks.length > 0 ? (
-          socialLinks.map((link, index) => (
-            <a key={index} href={link.url || "#"}>{link.platform || "Unknown"}</a>
-          ))
-        ) : (
-          <p>No social links</p>
-        )}
-      </footer>
-    );
-  }
-  
+import React from "react";
+
+export default function Footer() {
+  return (
+    <footer className="footer">
+      <p>&copy; {new Date().getFullYear()} Noorulain. All Rights Reserved.</p>
+    </footer>
+  );
+}

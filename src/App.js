@@ -1,45 +1,37 @@
-// src/App.js
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import DataEntry from "./components/DataEntry";
 import Portfolio from "./components/Portfolio";
-import Projects from "./components/Projects"; //import Projects component
-
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Projects from "./components/Projects";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import "./App.css";
 
 export default function App() {
   const [formData, setFormData] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const name = event.target.name.value;
-    const bio = event.target.bio.value;
-    const platform = event.target.platform.value;
-    const url = event.target.url.value;
-
-    setFormData({
-      name,
-      bio,
-      socialMedia: [{ platform, url }],
-    });
-  };
-
   return (
-    <div className={darkMode ? "dark-mode" : ""}>
-      <div className="container">
-        <button onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? "Light Mode" : "Dark Mode"}
-        </button>
+    <Router>
+      <div className={`app-container ${darkMode ? "dark-mode" : ""}`}>
+        <Navbar darkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
 
-        <form onSubmit={handleSubmit} className="form-container">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <textarea name="bio" placeholder="Short Bio" required></textarea>
-          <input type="text" name="platform" placeholder="Platform" />
-          <input type="text" name="url" placeholder="URL" />
-          <button type="submit">Generate Portfolio</button>
-        </form>
+        <Hero />
 
-        {formData && <Portfolio formData={formData} />}
+        <Routes>
+          <Route path="/" element={<DataEntry setFormData={setFormData} />} />
+          <Route path="/portfolio" element={<Portfolio formData={formData} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="*" element={<DataEntry setFormData={setFormData} />} />
+        </Routes>
+
+        <Footer /> {/* ✅ Now properly positioned at the bottom */}
       </div>
-    </div>
+    </Router>
   );
 }

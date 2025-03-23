@@ -1,47 +1,170 @@
-/* src/App.css */
-
-/* Light Mode (Default) */
+/* Global Styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #f8f9fa;
   color: #212529;
+  margin: 0;
+  padding: 0;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.container {
-  text-align: center;
-  padding: 20px;
+/* Main App Container */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure full height */
 }
 
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Navbar */
+.navbar {
+  background: #007bff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: white;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Form Section */
 .form-container {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 25px;
+  border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  margin: auto;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
 }
 
 input, textarea {
   width: 100%;
-  margin: 8px 0;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 16px;
 }
 
 button {
   background-color: #007bff;
   color: white;
-  padding: 10px 15px;
+  padding: 12px;
   border: none;
   cursor: pointer;
   width: 100%;
+  font-size: 16px;
   border-radius: 5px;
+  transition: background 0.3s;
 }
 
 button:hover {
   background-color: #0056b3;
+}
+
+/* Projects Section */
+.projects {
+  text-align: center;
+  padding: 30px;
+}
+
+.project-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.project-card h3 {
+  margin-top: 10px;
+}
+
+/* Profile Section */
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  background: #007bff;
+  color: white;
+  padding: 15px 0;
+  font-size: 14px;
+  margin-top: auto; /* Ensures it sticks to bottom */
+  width: 100%;
 }
 
 /* Dark Mode */
@@ -50,11 +173,14 @@ button:hover {
   color: #f8f9fa;
 }
 
-.dark-mode .form-container {
+.dark-mode .form-container,
+.dark-mode .project-card {
   background: #333;
+  color: white;
 }
 
-.dark-mode input, .dark-mode textarea {
+.dark-mode input,
+.dark-mode textarea {
   background: #555;
   color: white;
   border: 1px solid #777;
@@ -66,4 +192,27 @@ button:hover {
 
 .dark-mode button:hover {
   background-color: #138496;
+}
+
+.dark-mode .footer {
+  background: #0056b3;
+}
+
+/* Dark Mode Button */
+.dark-mode-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5d1066;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dark-mode-btn:hover {
+  background-color: #0056b3;
 }
