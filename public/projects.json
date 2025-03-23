@@ -1,0 +1,21 @@
+[
+    {
+      "title": "Portfolio Website",
+      "description": "A personal portfolio showcasing my projects and skills.",
+      "image": "https://via.placeholder.com/300",
+      "github": "https://github.com/yourusername/portfolio"
+    },
+    {
+      "title": "E-commerce Store",
+      "description": "An online store built with React and Firebase.",
+      "image": "https://via.placeholder.com/300",
+      "github": "https://github.com/yourusername/ecommerce"
+    },
+    {
+      "title": "Weather App",
+      "description": "A weather forecasting app using OpenWeather API.",
+      "image": "https://via.placeholder.com/300",
+      "github": "https://github.com/yourusername/weather-app"
+    }
+  ]
+  
